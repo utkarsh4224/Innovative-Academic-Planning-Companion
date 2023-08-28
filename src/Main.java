@@ -4,7 +4,6 @@ public class Main {
         String name; //Subject ka naam
         List<Subject> requirement; //Subject ko krne ke liye requirement (means agr vo DSA ka Subject krna chahta hai to usse pehle koi language subject padha hona chahiye)
         int credits;// kitna us Subject ka credit hai
-
         public Subject(String name,int credits) { //parameterised constructor
             this.name = name;
             this.requirement = new ArrayList<>();
