@@ -20,6 +20,12 @@ public class Main {
             this.academicload = 0;
         }
     }
+
+    static class ScheduleGenerator{
+        List<Course> courses;
+
+    }
+
     public static void main(String[] args) {
     }
 }
