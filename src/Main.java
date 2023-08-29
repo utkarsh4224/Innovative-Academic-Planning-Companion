@@ -11,19 +11,19 @@ public class Main {
             this.credits = credits;
         }
 
-        public String getName(){
+        public String getName(){ //Name return krvane ke liye
             return name;
         }
 
-        public int getCredits(){
+        public int getCredits(){ //Credits return krvane ke liye
             return credits;
         }
 
-        public void addRequirement(Course requirement){
+        public void addRequirement(Course requirement){ //Requirement(list) mai requirement dalne ke liye
             requirements.add(requirement);
         }
 
-        public List<Course> getRequirements(){
+        public List<Course> getRequirements(){ //requirement return krne ke liye
             return requirements;
         }
     }
@@ -36,16 +36,16 @@ public class Main {
             this.Totalcredits = 0;//initializing credit value to zero
         }
 
-        public void addCourse(Course course) {
+        public void addCourse(Course course) { //courses(list) mai course add krna
             courses.add(course);
-            Totalcredits += course.getCredits();
+            Totalcredits += course.getCredits();//Pehle poorane credit ko lana phir increment krna
         }
 
-        public List<Course> getCourses() {
+        public List<Course> getCourses() {//courses ko return krvanee ke liye
             return courses;
         }
 
-        public int getTotalCredits() {
+        public int getTotalCredits() { // Total credit return krvane ke liye
             return Totalcredits;
         }
     }
