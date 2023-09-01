@@ -52,7 +52,7 @@ public class Main {
 
     static class ScheduleGenerator{
         List<Course> Courses;
-
+        List<Period> periods;
     }
 
     public static void main(String[] args) {
