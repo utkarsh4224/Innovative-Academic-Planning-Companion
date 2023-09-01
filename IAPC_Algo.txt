@@ -1,0 +1,23 @@
+IAPC
+ALGORITHM
+
+#define input data
+courses = [
+    {"name": "Course A", "credits": 3, "prerequisites": []},
+    {"name": "Course B", "credits": 4, "prerequisites": ["Course A"]},
+]
+
+max_periods = 10  # Maximum number of academic periods
+min_credits_per_period = 12  # Minimum academic load per period
+max_credits_per_period = 18  # Maximum academic load per period
+min_courses_per_period = 3   # Minimum number of courses per period
+max_courses_per_period = 5   # Maximum number of courses per period
+
+# Initialize an empty curriculum
+curriculum = {period: [] for period in range(1, max_periods + 1)}
+
+#Initialize data structure for academic load and course count for each period
+Prerequisites_count = {courses[“name”]:0 for all course in courses}
+Course_count = {courses[“name”]:courses[“credits”] for all course in courses}
+
+
