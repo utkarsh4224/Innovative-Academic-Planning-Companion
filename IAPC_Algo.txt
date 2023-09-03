@@ -20,4 +20,8 @@ curriculum = {period: [] for period in range(1, max_periods + 1)}
 Prerequisites_count = {courses[“name”]:0 for all course in courses}
 Course_count = {courses[“name”]:courses[“credits”] for all course in courses}
 
+# Sort courses by their prerequisites (courses with no prerequisites first)
+courses.sort(key=lambda x: len(x["prerequisites"]))
+
+
 
