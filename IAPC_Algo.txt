@@ -17,3 +17,142 @@ int minCreditsPerPeriod = 12;  // Minimum academic load per period
 int maxCreditsPerPeriod = 18;  // Maximum academic load per period
 int minCoursesPerPeriod = 3;   // Minimum number of courses per period
 int maxCoursesPerPeriod = 5;   // Maximum number of courses per period
+
+// Read course data from CSV file into a list of course objects
+List<Course> courses = readCourseDataFromFile("courses.csv");
+
+//impliment the below funtion
+public static List<Course> readCourseDataFromFile(String filePath) {
+        List<Course> courses = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 2) {
+                    String name = parts[0].trim();
+                    int credits = Integer.parseInt(parts[1].trim());
+                    List<String> prerequisites = new ArrayList<>();
+                    if (parts.length >= 3 && !parts[2].isEmpty()) {
+                        String[] prereqArray = parts[2].trim().split(",");
+                        for (String prereq : prereqArray) {
+                            prerequisites.add(prereq.trim());
+                        }
+                    }
+                    courses.add(new Course(name, credits, prerequisites));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return courses;
+    }
+
+// Initialize an empty curriculum represented as an array of lists
+List<String>[] curriculum = new List[maxPeriods];
+for (int i = 0; i < maxPeriods; i++) {
+    curriculum[i] = new ArrayList<>();
+}
+
+// Sort courses by their prerequisites (courses with no prerequisites first)
+courses.sort((a, b) -> a.prerequisites.size() - b.prerequisites.size());
+
+
+Course findCourseByName(String courseName) {
+    for (Course course : courses) {
+        if (course.name.equals(courseName)) {
+            return course; // Found the course with the given name
+        }
+    }
+    return null; // Course not found
+}
+
+
+boolean canAddCourse(int period, Course course) {
+    // Calculate the total credits of courses in the current academic period
+    int totalCredits = curriculum[period].stream()
+            .mapToObj(courseName -> findCourseByName(courseName))
+            .mapToInt(c -> c.credits)
+            .sum();
+    
+    // Check if adding the new course will exceed the maximum credits per period
+    // and if the maximum number of courses per period has not been reached
+    return totalCredits + course.credits <= maxCreditsPerPeriod
+            && curriculum[period].size() < maxCoursesPerPeriod;
+}
+
+// Greedy course assignment
+for (Course course : courses) {
+    boolean added = false;
+    for (int period = 0; period < maxPeriods; period++) {
+        if (canAddCourse(period, course)) {
+            curriculum[period].add(course.name);
+            added = true;
+            break;
+        }
+    }
+}
+
+int calculateTotalCredits(int period) {
+    int totalCredits = 0;
+    
+    // Iterate through the course names in the curriculum for the specified period
+    for (String courseName : curriculum[period]) {
+        // Find the Course object by name
+        Course course = findCourseByName(courseName);
+        
+        // Add the credits of the course to the total
+        totalCredits += course.credits;
+    }
+    
+    return totalCredits;
+}
+
+// Ensure that each period meets the minimum academic load and course count
+for (int period = 0; period < maxPeriods; period++) {
+    while (calculateTotalCredits(period) < minCreditsPerPeriod
+            || curriculum[period].size() < minCoursesPerPeriod) {
+        // Try to move a course from a later period to this one
+        boolean moved = false;
+        for (int laterPeriod = period + 1; laterPeriod < maxPeriods; laterPeriod++) {
+            if (!curriculum[laterPeriod].isEmpty()) {
+                String courseToMove = curriculum[laterPeriod].remove(0);
+                Course movedCourse = findCourseByName(courseToMove);
+                curriculum[period].add(courseToMove);
+                moved = true;
+                break;
+            }
+        }
+        if (!moved) {
+            // If no course can be moved, break the loop (suboptimal solution)
+            break;
+        }
+    }
+}
+
+void writeCurriculumToFile(List<String>[] curriculum, String filePath) {
+    try {
+        FileWriter writer = new FileWriter(filePath);
+
+        // Write header row
+        writer.append("Period,Course Name\n");
+
+        // Write course assignments for each period
+        for (int period = 0; period < curriculum.length; period++) {
+            for (String courseName : curriculum[period]) {
+                writer.append(period + 1 + "," + courseName + "\n");
+            }
+        }
+
+        writer.flush();
+        writer.close();
+        System.out.println("Curriculum written to " + filePath);
+    } catch (IOException e) {
+        e.printStackTrace();
+        System.err.println("Error writing curriculum to file: " + e.getMessage());
+    }
+}
+
+// Output the resulting curriculum to a CSV file
+writeCurriculumToFile(curriculum, "curriculum.csv"); // Implement this function
