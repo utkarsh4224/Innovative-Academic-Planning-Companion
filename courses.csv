@@ -1,0 +1,11 @@
+Course A,3,
+Course B,4,Course A
+Course C,3,Course B
+Course D,3,Course A
+Course E,4,Course C,Course D
+Course F,3,
+Course G,4,Course F
+Course H,3,Course G
+Course I,4,
+Course J,3,Course I
+Course K,4,Course I
