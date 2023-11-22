@@ -1,24 +1,30 @@
 import java.io.*;
 import java.util.*;
 
-
 public class CurriculumGenerator {
     // Define the maximum number of academic periods and other constraints
     int maxPeriods = 10;           // Maximum number of academic periods
-    int minCreditsPerPeriod = 12;  // Minimum academic load per period
+    int minCreditsPerPeriod = 12;  // Minimum   academic load per period
     int maxCreditsPerPeriod = 18;  // Maximum academic load per period
     int minCoursesPerPeriod = 3;   // Minimum number of courses per period
     int maxCoursesPerPeriod = 5;   // Maximum number of courses per period
 
     // Read course data from CSV file into a list of course objects
     List<Course> courses = readCourseDataFromFile("courses.csv");
+    Map<String, Course> courseMap = new HashMap<>();
 
     @SuppressWarnings("unchecked")
     List<String>[] curriculum = new List[maxPeriods];
 
-    public CurriculumGenerator() {
+    public CurriculumGenerator(List<Course> courses) {
         for (int i = 0; i < maxPeriods; i++) {
             curriculum[i] = new ArrayList<>();
+        }
+        this.courses = courses;
+
+        // Build the courseMap for efficient course lookup
+        for (Course course : courses) {
+            courseMap.put(course.name, course);
         }
     }
 
@@ -40,7 +46,8 @@ public class CurriculumGenerator {
                                 prerequisites.add(prereq.trim());
                             }
                         }
-                        courses.add(new Course(name, credits, prerequisites));
+                        Course course = new Course(name, credits, prerequisites);
+                        courses.add(course);
                     } catch (NumberFormatException e) {
                         // Handle non-numeric credits here (e.g., skip the line or log an error)
                         System.err.println("Skipping line due to non-numeric credits: " + line);
@@ -52,18 +59,11 @@ public class CurriculumGenerator {
         }
 
         return courses;
-
     }
 
-
-    // Implement the findCourseByName function
+    // Implement the findCourseByName function using the courseMap
     Course findCourseByName(String courseName) {
-        for (Course course : courses) {
-            if (course.name.equals(courseName)) {
-                return course; // Found the course with the given name
-            }
-        }
-        return null; // Course not found
+        return courseMap.get(courseName);
     }
 
     // Implement the canAddCourse function

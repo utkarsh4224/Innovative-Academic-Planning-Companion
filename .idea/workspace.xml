@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bcabccb-c478-471f-a0a4-71898ed01f17" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CurriculumGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CurriculumGeneratorGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Innovative Academic Planning Companion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Innovative Academic Planning Companion.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courses.csv" beforeDir="false" afterPath="$PROJECT_DIR$/courses.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/curriculum.csv" beforeDir="false" afterPath="$PROJECT_DIR$/curriculum.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CurriculumGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CurriculumGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +28,9 @@
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/CurriculumGenerator.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,8 +52,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/Innovative Academic Planning Companion",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "last_opened_file_path": "E:/javafx-sdk-21.0.1/lib",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RunManager">
@@ -265,7 +274,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694553362777</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="commit">
+      <option name="closed" value="true" />
+      <created>1698567443438</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1698567443438</updated>
+    </task>
+    <task id="LOCAL-00027" summary="commit">
+      <option name="closed" value="true" />
+      <created>1698825045013</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1698825045013</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
