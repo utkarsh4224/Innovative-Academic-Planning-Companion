@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bcabccb-c478-471f-a0a4-71898ed01f17" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/CurriculumGeneratorGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Innovative Academic Planning Companion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Innovative Academic Planning Companion.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courses.csv" beforeDir="false" afterPath="$PROJECT_DIR$/courses.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/curriculum.csv" beforeDir="false" afterPath="$PROJECT_DIR$/curriculum.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CurriculumGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CurriculumGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +44,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/javafx-sdk-21.0.1/lib",
+    "last_opened_file_path": "E:/Innovative Academic Planning Companion",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -290,8 +287,20 @@
       <option name="project" value="LOCAL" />
       <updated>1698825045013</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="commit">
+      <option name="closed" value="true" />
+      <created>1700665229780</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1700665229780</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
